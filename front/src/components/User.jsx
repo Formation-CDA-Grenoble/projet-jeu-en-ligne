@@ -1,14 +1,15 @@
 import React from 'react';
 
-const User = ({ pseudo, motpass, director, release_date }) =>
+const User = ({Id_user, pseudo, email, motpass, statue, score }) =>
   <div>
-    
     <ul>
-      <li>Episode ID: {episode_id}</li>
-      <li>Director: {director}</li>
-      <li>Release Date: {release_date}</li>
+      <li>{Id_user}</li>
+      <li>{pseudo}</li>
+      <li>{email}</li>
+      <li>{statue}</li>
+      <li>{score}</li>
     </ul>
   </div>
 ;
 
-export default Film;
+export default User;

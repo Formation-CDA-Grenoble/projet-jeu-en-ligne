@@ -3,9 +3,9 @@ import Axios from 'axios';
 
 
 
-class Move = ()=> {
+const Move = ()=> {
       
-    Axios.post(localhost:3000\'Id_case')
+    Axios.post(localhost:3000\`Id_case`)
     .then(response => 
       
        return this.case.map:[] 
