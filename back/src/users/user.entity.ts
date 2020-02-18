@@ -1,24 +1,34 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, CreateDateColumn } from 'typeorm';
+import { Block } from '../blocks/block.entity'
 
 @Entity()
 export class User {
     @PrimaryGeneratedColumn()
     private id: number;
 
-    @Column({ length: 255 })
+    @Column('varchar', { length: 255 })
     private pseudo: string;
 
-    @Column({length: 255})
+    @Column('varchar', {length: 255})
     private email: string;
 
-    @Column({length: 255})
+    @Column('varchar', {length: 255})
     private password: string;
 
     @Column('int')
     private score: number;
 
-    @Column()
+    @Column('boolean')
     private status: boolean;
+
+    @OneToMany(type => Block, block => block.user_blocked)
+    public usersBlocked: Block[];
+
+    @OneToMany(type => Block, block => block.user_blocker)
+    public usersBlocker: Block[];
+
+    @CreateDateColumn()
+    private created_at:string;
 
     public getId = ():number => {
         return this.id
