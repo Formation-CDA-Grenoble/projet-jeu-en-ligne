@@ -1,15 +1,14 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from 'typeorm';
 import { UsersModule } from './users/users.module';
-
-const options:any = {
-    useNewUrlParser: true, 
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-}
-
-
+import { MessagesModule } from './messages/messages.module';
 
 @Module({
-  imports: [UsersModule],
+  	imports: [
+  		TypeOrmModule.forRoot(),
+	  	UsersModule,
+	   	MessagesModule,
+	],
+
 })
 export class AppModule {}
