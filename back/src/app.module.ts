@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { UsersModule } from './users/users.module';
 
 const options:any = {
     useNewUrlParser: true, 
@@ -9,6 +10,6 @@ const options:any = {
 
 
 @Module({
-  imports: [],
+  imports: [UsersModule],
 })
 export class AppModule {}
