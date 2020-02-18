@@ -10,11 +10,11 @@ export class Block {
         onDelete: 'CASCADE',
         nullable: false
     })
-    public user_blocked:number;
+    public user_blocked:User;
 
     @ManyToOne(type => User, user => user.usersBlocker, {
         onDelete: 'CASCADE',
         nullable: false
     })
-    public user_blocker: number;
+    public user_blocker:User;
 }

@@ -30,9 +30,24 @@ export class UsersController {
         return res.json(user);
     }
 
-    @Put(':ID')
-    async updateUser(@Res() res, @Param('ID') userID, @Body() entityUser: User) {
-        const user = await this.usersService.updateUser(userID, entityUser);
+    @Put('/block/:ID')
+    async blockUser(@Res() res, @Param('ID') userID, @Body() entityUser: User) {
+
+        const userBlocked = await this.usersService.getUser(userID);
+        if (!userBlocked) throw new NotFoundException('UserBlocked does not exist!');
+
+        const userBlocker = await this.usersService.blockUser(entityUser, userBlocked);
+        if (!userBlocker) throw new NotFoundException('User does not exist!');
+
+        return res.json({
+            message: 'User has been successfully blocked',
+            userBlocker
+        });
+    }
+
+    @Put()
+    async updateUser(@Res() res, @Body() entityUser: User) {
+        const user = await this.usersService.updateUser(entityUser);
         if (!user) throw new NotFoundException('User does not exist!');
         return res.json({
             message: 'User has been successfully updated',

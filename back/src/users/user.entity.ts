@@ -22,10 +22,10 @@ export class User {
     private status: boolean;
 
     @OneToMany(type => Block, block => block.user_blocked)
-    public usersBlocked: Block[];
+    public usersBlocked: User[];
 
     @OneToMany(type => Block, block => block.user_blocker)
-    public usersBlocker: Block[];
+    public usersBlocker: User[];
 
     @CreateDateColumn()
     private created_at:string;
