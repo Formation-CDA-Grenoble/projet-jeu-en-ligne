@@ -15,6 +15,11 @@ export class MovesService {
     	return moves;
     }
 
+    async getMove(moveID:number): Promise<Move> {
+    	const move = await this.movesRepository.findOne(moveID);
+        return move;
+    }
+
     async getAllMovesByGame(gameID:number): Promise<Move[]> {
     	const moves = await this.movesRepository.find({ where: { game: gameID }});
         return moves;
