@@ -1,6 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn, OneToMany } from 'typeorm';
 import { User } from '../users/user.entity';
 import { Move } from '../moves/move.entity';
+import { Message } from '../messages/message.entity';
 
 @Entity()
 export class Game {
@@ -36,6 +37,9 @@ export class Game {
 
 	@OneToMany(type => Move, move => move.game) 
 	public moves: Move[];
+
+	@OneToMany(type => Message, message => message.game) 
+	public messages: Message[];
 
     @CreateDateColumn()
     private created_at:string;
