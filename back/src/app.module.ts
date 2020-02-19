@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { MessagesModule } from './messages/messages.module';
 import { BlocksModule } from './blocks/blocks.module';
+import { GamesModule } from './games/games.module';
 
 @Module({
   	imports: [
@@ -10,6 +11,7 @@ import { BlocksModule } from './blocks/blocks.module';
 	  	UsersModule,
 	   	MessagesModule,
 	   	BlocksModule,
+	   	GamesModule,
 	],
 
 })
