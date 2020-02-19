@@ -35,7 +35,7 @@ export class MessagesService {
     	return messages;
     }
 
-    async getmessage(messageID:number): Promise<Message> {
+    async getMessage(messageID:number): Promise<Message> {
     	const message = await this.messagesRepository.findOne(messageID, { relations: ["player1", "player2", "game"] });
         return message;
     }
