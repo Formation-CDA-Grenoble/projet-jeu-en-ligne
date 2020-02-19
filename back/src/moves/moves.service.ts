@@ -10,7 +10,7 @@ export class MovesService {
         private readonly movesRepository: Repository<Move>,
     ) {}
 
-    async getAllmoves(): Promise<Move[]> {
+    async getAllMoves(): Promise<Move[]> {
     	const moves = await this.movesRepository.find();
     	return moves;
     }
@@ -25,7 +25,7 @@ export class MovesService {
         return moves;
     }
 
-    async getAllMovesByUserByGame(gameID:number, userID:number): Promise<Move[]> {
+    async getAllMovesByGameByUser(gameID:number, userID:number): Promise<Move[]> {
     	const moves = await this.movesRepository.find({ where: { game: gameID, player: userID }});
         return moves;
     }

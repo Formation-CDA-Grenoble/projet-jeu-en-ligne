@@ -1,6 +1,3 @@
-export class MoveEntity {}
-
-
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn } from 'typeorm';
 import { Game } from '../games/game.entity';
 import { User } from '../users/user.entity';

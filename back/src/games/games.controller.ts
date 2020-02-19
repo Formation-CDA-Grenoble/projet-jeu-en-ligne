@@ -19,7 +19,7 @@ export class GamesController {
 
     @Get()
     async getAllGames(@Res() res) {
-        const games = await this.gamesService.getAllgames();
+        const games = await this.gamesService.getAllGames();
         return res.json(games);
     }
 

@@ -10,7 +10,7 @@ export class GamesService {
         private readonly gamesRepository: Repository<Game>,
     ) {}
 
-    async getAllgames(): Promise<Game[]> {
+    async getAllGames(): Promise<Game[]> {
     	const games = await this.gamesRepository.find({ relations: ["player1", "player2"] });
     	return games;
     }
