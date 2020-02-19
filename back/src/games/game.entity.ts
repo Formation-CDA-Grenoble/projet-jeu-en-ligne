@@ -6,22 +6,13 @@ export class Game {
     @PrimaryGeneratedColumn()
     private id: number;
 
-    @Column('varchar', { 
-    	length: 255,
-    	nullable: false
-    })
+    @Column('varchar', { length: 255 })
     private name: string;
 
-    @Column('varchar', {
-    	length: 255,
-    	nullable: true
-    })
+    @Column('varchar', {length: 255})
     private password: string;
 
-    @Column('int', {
-    	nullable: false,
-    	default: 1
-    })
+    @Column('int')
     private status: number;
 
 	@ManyToOne(type => User, {
