@@ -1,12 +1,13 @@
 import React from 'react';
-import './App.css';
-
-function App() {
+import Case from'./components/Case.jsx';
+const App =() => 
+ {
   return (
-    <div className="App">
-   
-    </div>
-  );
-}
+    <Case />
+  )
+};
 
 export default App;
+
+
+

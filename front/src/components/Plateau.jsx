@@ -5,12 +5,12 @@ import Axios from 'axios';
 
 const Plateau = ()=> {
    
-    Axios.get(localhost:3000\'Id_case')
-    .then(response => 
+    Axios.get(localhost:3000\'Id_case', {})
+    .then(response =>{ 
       
-       return this.case.map:[] 
+       return this.case.map[case] }
          
-};
+});
 
 
 export defualt 
