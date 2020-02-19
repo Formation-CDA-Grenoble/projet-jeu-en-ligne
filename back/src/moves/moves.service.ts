@@ -11,22 +11,22 @@ export class MovesService {
     ) {}
 
     async getAllMoves(): Promise<Move[]> {
-    	const moves = await this.movesRepository.find();
+    	const moves = await this.movesRepository.find({ relations: ["player", "game"] });
     	return moves;
     }
 
     async getMove(moveID:number): Promise<Move> {
-    	const move = await this.movesRepository.findOne(moveID);
+    	const move = await this.movesRepository.findOne(moveID, { relations: ["player", "game"] });
         return move;
     }
 
     async getAllMovesByGame(gameID:number): Promise<Move[]> {
-    	const moves = await this.movesRepository.find({ where: { game: gameID }});
+    	const moves = await this.movesRepository.find({ where: { game: gameID }, relations: ["player"] });
         return moves;
     }
 
     async getAllMovesByUser(userID:number): Promise<Move[]> {
-    	const moves = await this.movesRepository.find({ where: { user: userID }});
+    	const moves = await this.movesRepository.find({ where: { user: userID }, relations: ["game"]});
         return moves;
     }
 

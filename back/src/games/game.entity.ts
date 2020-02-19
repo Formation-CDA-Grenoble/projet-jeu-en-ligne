@@ -5,7 +5,7 @@ import { Move } from '../moves/move.entity';
 @Entity()
 export class Game {
     @PrimaryGeneratedColumn()
-    private id: number;
+    public id: number;
 
     @Column('varchar', { 
     	length: 255,
@@ -34,7 +34,7 @@ export class Game {
 	@ManyToOne(type => User) 
 	private player2: User; 
 
-	@OneToMany(type => Move, move => move) 
+	@OneToMany(type => Move, move => move.game) 
 	public moves: Move[];
 
     @CreateDateColumn()

@@ -1,11 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn, JoinColumn } from 'typeorm';
 import { Game } from '../games/game.entity';
 import { User } from '../users/user.entity';
 
 @Entity()
 export class Move {
     @PrimaryGeneratedColumn()
-    private id: number;
+    public id: number;
 
     @Column('int', { 
     	nullable: false
@@ -17,17 +17,18 @@ export class Move {
     })
     private position: number;
 
-	@ManyToOne(type => Game, game => game.moves, {
+	@ManyToOne(() => Game, game => game.moves, {
 		nullable: false,
-		onDelete: "CASCADE"
-	}) 
-	private game: Game;
+		onDelete: "CASCADE",
+		onUpdate: "CASCADE"
+	})
+	public game: Game;
 
-	@ManyToOne(type => User, {
+	@ManyToOne(() => User, {
 		nullable: true,
 		onDelete: "SET NULL"
-	}) 
-	private player: User; 
+	})
+	public player: User; 
 
     @CreateDateColumn()
     private created_at:string;

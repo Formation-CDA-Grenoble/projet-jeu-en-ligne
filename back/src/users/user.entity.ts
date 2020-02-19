@@ -4,7 +4,7 @@ import { Block } from '../blocks/block.entity'
 @Entity()
 export class User {
     @PrimaryGeneratedColumn()
-    private id: number;
+    public id: number;
 
     @Column('varchar', { length: 255 })
     private pseudo: string;
