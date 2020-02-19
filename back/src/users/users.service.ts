@@ -21,7 +21,7 @@ export class UsersService {
     }
 
     async blockUser(userBlocker: User, userBlocked:User): Promise<User> {
-        userBlocker.usersBlocked = [ ...userBlocker.usersBlocked, userBlocked ]
+        userBlocker.usersBlocked = [ userBlocked ]
         const blockUser = await this.usersRepository.save(userBlocker);
         return blockUser;  
     }

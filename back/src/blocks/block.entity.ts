@@ -3,6 +3,7 @@ import { User } from '../users/user.entity'
 
 @Entity()
 export class Block {
+
     @PrimaryGeneratedColumn()
     private id: number;
 
@@ -18,3 +19,4 @@ export class Block {
     })
     public user_blocker:User;
 }
+
