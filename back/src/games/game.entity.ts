@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn, OneToMany } from 'typeorm';
 import { User } from '../users/user.entity';
+import { Move } from '../moves/move.entity';
 
 @Entity()
 export class Game {
@@ -32,6 +33,9 @@ export class Game {
 
 	@ManyToOne(type => User) 
 	private player2: User; 
+
+	@OneToMany(type => Move, move => move) 
+	public moves: Move[];
 
     @CreateDateColumn()
     private created_at:string;

@@ -17,7 +17,7 @@ export class Move {
     })
     private position: number;
 
-	@ManyToOne(type => Game, {
+	@ManyToOne(type => Game, game => game.moves, {
 		nullable: false,
 		onDelete: "CASCADE"
 	}) 

@@ -11,12 +11,12 @@ export class GamesService {
     ) {}
 
     async getAllGames(): Promise<Game[]> {
-    	const games = await this.gamesRepository.find({ relations: ["player1", "player2"] });
+    	const games = await this.gamesRepository.find({ relations: ["player1", "player2", "moves"] });
     	return games;
     }
 
     async getGame(gameID:number): Promise<Game> {
-    	const game = await this.gamesRepository.findOne(gameID, { relations: ["player1", "player2"] });
+    	const game = await this.gamesRepository.findOne(gameID, { relations: ["player1", "player2", "moves"] });
         return game;
     }
 
