@@ -1,8 +1,10 @@
 import { MessagesService } from './messages.service';
 import { Message } from './message.entity';
-import { Controller, Get, Res, HttpCode, Post, Body, Put, Query, NotFoundException, Delete, Param } from '@nestjs/common';
+import { Controller, Get, Res, HttpCode, Post, Body, Put, Query, NotFoundException, Delete, Param, UseGuards } from '@nestjs/common';
+import { AuthenticationGuard } from '../guards/authentication.guard';
 
 @Controller('messages')
+@UseGuards(AuthenticationGuard)
 export class MessagesController {
     constructor(private messagesService: MessagesService) {}
 

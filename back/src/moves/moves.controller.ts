@@ -1,7 +1,10 @@
 import { MovesService } from './moves.service';
 import { Move } from './move.entity';
-import { Controller, Get, Res, HttpCode, Post, Body, Put, Query, NotFoundException, Delete, Param } from '@nestjs/common';
+import { Controller, Get, Res, HttpCode, Post, Body, Put, Query, NotFoundException, Delete, Param, UseGuards } from '@nestjs/common';
+import { AuthenticationGuard } from '../guards/authentication.guard';
+
 @Controller('moves')
+@UseGuards(AuthenticationGuard)
 export class MovesController {
     constructor(private movesService: MovesService) {}
 

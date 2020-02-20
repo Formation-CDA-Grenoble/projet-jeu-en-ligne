@@ -25,12 +25,12 @@ export class AppModule implements NestModule {
 		consumer
 			.apply(DecodeJwtMiddleware)
 			.forRoutes(
-				UsersModule,
-			   	MessagesModule,
-			   	BlocksModule,
-			   	GamesModule,
-			   	MovesModule,
-			   	AuthenticationModule,
+				"users",
+			   	"messages",
+			   	"blocks",
+			   	"games",
+			   	"moves",
+			   	"login",
 			)
 	}
 }

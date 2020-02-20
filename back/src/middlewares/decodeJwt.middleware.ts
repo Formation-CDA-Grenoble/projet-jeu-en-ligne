@@ -1,29 +1,27 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware, HttpStatus, HttpException } from '@nestjs/common';
 import * as jwt from 'jsonwebtoken';
 import { JWT_SECRET } from '../../constants';
+import { UsersService } from '../users/users.service';
+
 
 @Injectable()
 export class DecodeJwtMiddleware implements NestMiddleware {
 
-	use(req :Request, res: Response, next: () => void) {
-		console.log(req.headers)
-		const authJwtToken = req.headers;
+	constructor(private readonly usersService: UsersService) {}
 
-		if(!authJwtToken) {
-			next();
-			return;
-		}
-
-		try{
-			const user = jwt.verify(authJwtToken, JWT_SECRET)
-
-			if(user) {
-				console.log("Found user details in JWT: ", user);
-				req["user"] = user;
-			}
-		} catch(err){
-			console.log("Error handleing authentication JWT: ", err)
-		}
-		next()
-	}
+	async use(req :any, res: Response, next: () => void) {
+		const authHeaders = req.headers.authorization;
+    	if (authHeaders && typeof authHeaders === "string") {
+		    const token = authHeaders;
+		    const decoded: any = jwt.verify(token, JWT_SECRET);
+		    const user = await this.usersService.getUser(decoded.id);
+			if (!user) {
+        		throw new HttpException('User not found.', HttpStatus.UNAUTHORIZED);
+      		}
+      		req["user"] = user;
+      		next();
+    	} else {
+      		throw new HttpException('Not authorized.', HttpStatus.UNAUTHORIZED);
+    	}
+  	}
 }
