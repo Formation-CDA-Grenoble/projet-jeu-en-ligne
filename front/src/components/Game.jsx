@@ -18,13 +18,13 @@ export default function Game() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Inscription</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/about">Page principale</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/users">Inscrpition et connexion</Link>
             </li>
           </ul>
         </nav>
@@ -38,7 +38,7 @@ export default function Game() {
             <Users />
           </Route>
           <Route exact path="/">
-            <Home />
+            <Inscription />
           </Route>
         </Switch>
       </div>
@@ -46,7 +46,7 @@ export default function Game() {
   );
 }
 
-function Home() {
+function Inscription() {
   return <h2><RegistrationPage/></h2>;
 }
 
