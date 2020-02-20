@@ -3,14 +3,32 @@ import React  from 'react';
 class Case extends React.Component{ 
 
     state = {
-        case1: 0
+        case1: null,
+        case2: null,
+        case3: null,
+        case4: null,
+        case5: null,
+        case6: null,
+        case7: null,
+        case8: null,
+        case9: null
     }
+
+    handleClick = () => {
+        this.setState({
+            case1: "X"
+        });
+
+   
+
+    };
 
     handlClick = () => {
         this.setState({
-            case1: this.state.case1 + 1
-        })
-    }
+           case2: "X"
+       })
+
+    };
 
     render() {
         return (
@@ -18,56 +36,56 @@ class Case extends React.Component{
 
 <div className = "div">
     <div>
-    <button className="bouton" onClick = {this.handlClick}>
+    <button className="bouton" onClick = {this.handleClick}>
         { this.state.case1 }
     </button >
     </div>
 
     <div>
-    <button className="bouton" >
-       2
+    <button className="bouton" onClick = {this.handlClick}>
+    { this.state.case2 }
     </button >
     </div>
 
     <div>
     <button className="bouton" >
-        3
+    { this.state.case3 }
     </button >
     </div>
 
     <div>
     <button className="bouton" >
-        4
+    { this.state.case4 }
     </button >
     </div>
 
     <div>
     <button className="bouton" >
-        5
+    { this.state.case5 }
     </button >
     </div>
 
     <div>
     <button className="bouton" >
-        6
+    { this.state.case6 }
     </button >
     </div>
 
     <div>
     <button className="bouton" >
-        7
+    { this.state.case7 }
     </button >
     </div>
 
     <div>
     <button className="bouton" >
-        8
+    { this.state.case8 }
     </button >
     </div>
 
     <div>
     <button className="bouton" >
-        9
+    { this.state.case9 }
     </button >
     </div>
 

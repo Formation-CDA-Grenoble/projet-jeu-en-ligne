@@ -1,10 +1,10 @@
 import React from 'react';
 
-class User {
+class User extends React.Component {
 
-user={id_user, pseudo, email, motpass, statue, score};
+ user ={id_user, pseudo, email, motpass, statue, score};
 
-fuction player=() =>
+fuction player =({user}) =>
  {
     return (
   <div>
