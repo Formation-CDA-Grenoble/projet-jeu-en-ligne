@@ -1,16 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import RegistrationPage from './pages/RegistrationPage';
+
 import LoginPage from './pages/LoginPage';
-import ListPlayers from './components/ListPlayers';
+import Game from './components/Game';
 
 function App() {
   return (
     <div className="App">
-      <RegistrationPage/>
-      <LoginPage/>
-      <ListPlayers/>
+      
+
+      
+     
+
+      <Game/>
     </div>
   );
 }

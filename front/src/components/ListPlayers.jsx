@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+import '../styles/ListPlayers.css';
 
 
 class ListPlayers extends React.Component {
