@@ -1,8 +1,10 @@
 import { GamesService } from './games.service';
 import { Game } from './game.entity';
-import { Controller, Get, Res, HttpCode, Post, Body, Put, Query, NotFoundException, Delete, Param } from '@nestjs/common';
+import { Controller, Get, Res, HttpCode, Post, Body, Put, Query, NotFoundException, Delete, Param, UseGuards } from '@nestjs/common';
+import { AuthenticationGuard } from '../guards/authentication.guard'
 
 @Controller('games')
+@UseGuards(AuthenticationGuard)
 export class GamesController {
 
     constructor(private gamesService: GamesService) {}
