@@ -7,18 +7,17 @@ export default class RegistrationPage extends React.Component {
     return (
       <div>
         <h1>Plate Forme de Jeu</h1>
-        <form>
-        <ul>
-          <li>name</li>
-          <li>email</li>
-          <li>description</li>
-          <li>password</li>
-          <button>cancel</button>
-          <button>submit</button>
-        </ul>        
-        <input type="text"placeholder="Ajouter un joueur" />
-        <button>Ajouter</button>
-        </form>
+        <form submit={ this.handleSubmit }>
+          <label for="fname">name:</label><br/>
+          <input type="text" id="fname" name="fname" value=""/><br/>
+          <label for="mail">e-mail:</label><br/>
+          <input type="text" id="mail" e-mail="mail" value=""/><br/>
+          <label for="descript">description:</label><br/>
+          <input type="text" id="descript" description="descript" value=""/><br/>
+          <label for="pass">password:</label><br/>
+          <input type="text" id="pass" password="pass" value=""/><br/>
+          <input type="submit" value="Submit"/>
+        </form> 
       </div>
     );
   }

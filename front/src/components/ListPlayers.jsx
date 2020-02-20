@@ -25,16 +25,10 @@ class ListPlayers extends React.Component {
               <ul>
                   {this.state.players.map(player => (
                     <li>
-                        {player.name} <button>x</button>
+                        {player.name} 
                     </li>
                   ))}
                 </ul>
-              <form>
-              <input type ="text" placeholder="Ajouter un joueur" />
-              <button>Confirmer</button>
-
-              </form>
-            
           </div>
       );
     }
