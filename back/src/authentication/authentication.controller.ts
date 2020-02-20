@@ -12,11 +12,10 @@ export class AuthenticationController {
 
 	@Post()
 	async login(@Body("email") email:string, @Body("password") plaintextPassword:string) {
-		const user = await this.usersService.getUserByEmail(email)
+		const user = await this.usersService.getUserByEmailAndPassword(email, plaintextPassword)
 
 		if(!user) {
 			throw new UnauthorizedException();
-			console.log("pas user")
 		}
 
 		return new Promise((resolve, reject) => {
