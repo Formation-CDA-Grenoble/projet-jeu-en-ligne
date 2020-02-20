@@ -1,25 +1,23 @@
-import React, { Component } from 'react';
-import Axios from 'axios';
+import React from 'react';
+//import Axios from 'axios';
 
 
 
-class Signe  {
-    State= {
-        case=case,
-        signe=null,
-        move_order =0}
+function Signe (player) {
+    
+    if (Signe.props.id_user==1) 
+      return ("X")
+ 
+    else
+       return ("O")
 
-      fonction move (State) {
-      this.setState.map=>{
-          case=this.case,
-          signe=this.signe,
-          move_order++
-      } 
-      }
+         }
 
-    Axios.post(localhost:3000\State)
-    .then(response => 
+  /*  Axios.post("//localhost:3000\State")
+    .then(response => {
+        this.props({ data: response.data });
+      })*/
       
       
          
-};
+export default Signe;

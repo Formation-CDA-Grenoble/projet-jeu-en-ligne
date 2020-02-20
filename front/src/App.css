@@ -4,6 +4,8 @@
 }
 
 .bouton {
+ 
+  
   height: 200px;
   width: 200px;
   background-color:white;
@@ -20,6 +22,12 @@
 }
 
 .div{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left:0;
    height: 600px;
   width: 600px;
 display: grid;

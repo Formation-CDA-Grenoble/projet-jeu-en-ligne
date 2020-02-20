@@ -1,15 +1,22 @@
 import React from 'react';
 
-const User = ({Id_user, pseudo, email, motpass, statue, score }) =>
+class User {
+
+user={id_user, pseudo, email, motpass, statue, score};
+
+fuction player=() =>
+ {
+    return (
   <div>
     <ul>
-      <li>{Id_user}</li>
+      <li>{id_user}</li>
       <li>{pseudo}</li>
       <li>{email}</li>
       <li>{statue}</li>
       <li>{score}</li>
     </ul>
-  </div>
+  </div>)}
 ;
-
+User() player1 =new User
+User() player2 =new User; 
 export default User;

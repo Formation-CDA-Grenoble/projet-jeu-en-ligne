@@ -1,5 +1,7 @@
 import React  from 'react';
-import Grid from 'react-css-grid'
+import Signe from './Signe'
+
+Signe.props=null
 function Case () { 
     
         return (
@@ -7,7 +9,7 @@ function Case () {
 
 <div className = "div">
     <div>
-    <button className="bouton" >
+    <button className="bouton" onClick= "">
         1
     </button >
     </div>
