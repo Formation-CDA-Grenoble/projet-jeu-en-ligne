@@ -1,57 +1,67 @@
 import React  from 'react';
 import Grid from 'react-css-grid'
-
 function Case () { 
     
         return (
             <React.Fragment>
 
-<Grid
-        width={380}
-        gap={200}>
+<div className = "div">
+    <div>
+    <button className="bouton" >
+        1
+    </button >
+    </div>
+
+    <div>
+    <button className="bouton" >
+       2
+    </button >
+    </div>
+
+    <div>
+    <button className="bouton" >
+        3
+    </button >
+    </div>
+
+    <div>
+    <button className="bouton" >
+        4
+    </button >
+    </div>
+
+    <div>
+    <button className="bouton" >
+        5
+    </button >
+    </div>
+
+    <div>
+    <button className="bouton" >
+        6
+    </button >
+    </div>
+
+    <div>
+    <button className="bouton" >
+        7
+    </button >
+    </div>
+
+    <div>
+    <button className="bouton" >
+        8
+    </button >
+    </div>
+
+    <div>
+    <button className="bouton" >
+        9
+    </button >
+    </div>
 
     
-    <button id="bouton" >
-        case1
-    </button >
-    
-    <button id="bouton" >
-        case1
-    </button >
-   
-    <button id="bouton" >
-        case1
-    </button >
-   
-
-   
-    <button id="bouton" >
-        case1
-    </button >
-    
-    <button id="bouton" >
-        case1
-    </button >
-    
-    <button id="bouton" >
-        case1
-    </button >
-   
-
-   
-    <button id="bouton" >
-        case1
-    </button >
-   
-    <button id="bouton" >
-        case1
-    </button >
-    
-    <button id="bouton" >
-        case1
-    </button >
-   
-    </Grid>
+</div>   
          </React.Fragment>
     )}
         
