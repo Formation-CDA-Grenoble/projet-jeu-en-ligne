@@ -12,10 +12,7 @@ export class UsersService {
 
     async getAllUsers(): Promise<User[]> {
     	const users = await this.usersRepository.find({ relations: ["usersBlocked"] });
-    	return users.map((user) => {
-            const { passord, ...result } = user
-            return result
-        })
+    	return users
     }
 
     async getUser(userID:number): Promise<User> {
@@ -25,21 +22,18 @@ export class UsersService {
 
     async getUserByEmail(email:string): Promise<User> {
         const user = await this.usersRepository.findOne({ where: { email: email }});
-        const { passord, ...result } = user;
-        return result;
+        return user;
     }
 
     async getUserByEmailAndPassword(email:string, password:string): Promise<User> {
         const user = await this.usersRepository.findOne({ where: { email: email, password: password }});
-        const { passord, ...result } = user;
-        return result;
+        return user;
     }
 
     async blockUser(userBlocker: User, userBlocked:User): Promise<User> {
         userBlocker.usersBlocked = [ userBlocked ]
         const blockUser = await this.usersRepository.save(userBlocker);
-        const { passord, ...result } = blockUser;
-        return result; 
+        return blockUser; 
     }
 
     async addUser(entityUser: User): Promise<User> {  
@@ -56,20 +50,17 @@ export class UsersService {
         user.status = entityUser.status
         user.password = entityUser.password
         const newUser = await this.usersRepository.save(user); 
-        const { passord, ...result } = newUser;
-        return result;
+        return newUser;
     }
 
     async updateUser(entityUser: User): Promise<User> {
     	const user = await this.usersRepository.save(entityUser);
-    	const { passord, ...result } = user;
-        return result;
+        return user;
     }
 
     async deleteUser(userID): Promise<any> {
         let userToDeleted = await this.usersRepository.findOne(userID);
         const deletedUser = await this.usersRepository.remove(userToDeleted);
-        const { passord, ...result } = deletedUser;
-        return result;
+        return deletedUser;
     }
 }

@@ -47,9 +47,4 @@ export class User {
     hashpassword() { 
         this.password = UsersTransformer.hashPassword(this.password)
     }
-
-    @AfterInsert()
-    untest() {
-        console.log("bordel")
-    }
 }
