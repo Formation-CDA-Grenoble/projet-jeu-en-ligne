@@ -17,7 +17,10 @@ export default class ContainerInscription extends React.Component<any,any,any>{
 			loading:false
 
 		}
+
+		this.checkToken()
 	}
+
 
 	private handleChange = (event:any) => {
 		const { name, value } = event.target
@@ -29,6 +32,21 @@ export default class ContainerInscription extends React.Component<any,any,any>{
 		})
 	}
 
+	private checkToken = () => {
+		const token:string | null = localStorage.getItem('token')
+		if(token)this.props.goTo('home', false)
+	}
+
+	private saveLocalStorage = (token:string) => {
+		console.log(token)
+		if(token) {
+			localStorage.setItem('token', token)
+			this.props.goTo('home', false)
+		} else {
+			//message error
+		}
+	}
+
 	private postConnection = () => {
 		this.setState({
 			loading: true
@@ -37,11 +55,9 @@ export default class ContainerInscription extends React.Component<any,any,any>{
 			...this.state.value
 		}
 		Axios.post(URL_SERVER+"/login", data).then((res) => {
-			console.log(res)
-			//save localStorage
-			//this.goTo("connexion", true)
+			this.saveLocalStorage(res.data.accessToken)
+
 		}).catch(err => {
-			console.log(err)
 		}).finally(() =>{
 			this.setState({
 				loading: false
