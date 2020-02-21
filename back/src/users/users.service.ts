@@ -50,6 +50,7 @@ export class UsersService {
         user.status = entityUser.status
         user.password = entityUser.password
         const newUser = await this.usersRepository.save(user); 
+        newUser.password = ""
         return newUser;
     }
 

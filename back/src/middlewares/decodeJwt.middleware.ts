@@ -16,12 +16,13 @@ export class DecodeJwtMiddleware implements NestMiddleware {
 		    const decoded: any = jwt.verify(token, JWT_SECRET);
 		    const user = await this.usersService.getUser(decoded.id);
 			if (!user) {
-        		throw new HttpException('User not found.', HttpStatus.UNAUTHORIZED);
-      		}
+        		next()
+                return;
+            }
       		req["user"] = user;
       		next();
     	} else {
-      		throw new HttpException('Not authorized.', HttpStatus.UNAUTHORIZED);
+      		next()
     	}
   	}
 }
