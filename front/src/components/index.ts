@@ -1,0 +1,1 @@
+export { default as ContainerInscription } from './ContainerInscription'
