@@ -1,7 +1,8 @@
 import React from 'react';
-import { ContainerInscription } from '../components';
-import { ContainerConnection } from '../components';
+import { ContainerInscription, ContainerConnection, ContainerDesignRegister } from '../components';
 import { Redirect } from "react-router-dom";
+import chess from '../images/chess.jpg';
+import tictactoe from '../images/tic-tac-toe.jpg';
 
 
 export default class PageRegister extends React.Component<any, any,any> {
@@ -28,9 +29,16 @@ export default class PageRegister extends React.Component<any, any,any> {
 			"connection": <ContainerConnection goTo={ this.goTo } confirm={ this.state.confirm }/>,
 			"home": <Redirect to="/home"/>
 		}
+
+		const images:any = {
+			"inscription": tictactoe, 
+			"connection": chess,
+			"home": null
+		}
 		const ComponentName:any = components[this.state.currentComponent]
 		return(
 			<div>
+				<ContainerDesignRegister image={ images[this.state.currentComponent] }/>
 				{ ComponentName }
 			</div>
 		)
