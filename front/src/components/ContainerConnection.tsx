@@ -3,6 +3,7 @@ import { InputRegister } from './inputs'
 import { ButtonSubmit } from './buttons'
 import Axios from 'axios'
 import { URL_SERVER } from '../constants'
+import { RegisterTitle } from './texts'
 
 export default class ContainerInscription extends React.Component<any,any,any>{
 
@@ -10,7 +11,6 @@ export default class ContainerInscription extends React.Component<any,any,any>{
 		super(props)
 		this.state = {
 			value: {
-				pseudo: "",
 				email: "",
 				password: ""
 			},
@@ -29,16 +29,16 @@ export default class ContainerInscription extends React.Component<any,any,any>{
 		})
 	}
 
-	private postInscription = () => {
+	private postConnection = () => {
 		this.setState({
 			loading: true
 		})
 		let data:any = {
-			...this.state.value,
-			status: 1
+			...this.state.value
 		}
-		Axios.post(URL_SERVER+"/users", data).then((res) => {
+		Axios.post(URL_SERVER+"/login", data).then((res) => {
 			console.log(res)
+			//save localStorage
 			//this.goTo("connexion", true)
 		}).catch(err => {
 			console.log(err)
@@ -51,39 +51,30 @@ export default class ContainerInscription extends React.Component<any,any,any>{
 
 	private handleSubmit = (event:any) => {
 		event.preventDefault()
-		this.postInscription()
+		this.postConnection()
 		//sinon message d'erreur
 	}
 
 
 
 	render() {
-		console.log(this.state)
+		const { value } = this.state
 		return(
 			<div>
-				<div className="register-title">
-					<p>{ "Rejoignez-nous," }</p>
-					<p>{ "connectez-vous !" }</p>
-				</div>
+				<RegisterTitle/>
 				<form onSubmit={ this.handleSubmit }>
-					<InputRegister
-						type={ "text" }
-						name={ "pseudo" }
-						placeholder={ "Identifiant" }
-						onChange={ this.handleChange }
-						value={ this.state.pseudo }/>
 					<InputRegister
 						type={ "email" }
 						name={ "email" }
 						placeholder={ "E-mail" }
 						onChange={ this.handleChange }
-						value={ this.state.mail }/>
+						value={ value.mail }/>
 					<InputRegister
 						type={ "password" }
 						name={ "password" }
 						placeholder={ "Mot de passe" }
 						onChange={ this.handleChange }
-						value={ this.state.password }/>
+						value={ value.password }/>
 					{ this.state.loading? <p>Inscription en cours...</p> 
 					:<ButtonSubmit title={ "Inscription" }/> }
 				</form>

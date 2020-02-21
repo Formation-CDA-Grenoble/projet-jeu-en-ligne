@@ -1,18 +1,36 @@
 import React from 'react'
 import { ContainerInscription } from '../components'
+import { ContainerConnection } from '../components'
 
 
 
 export default class PageRegister extends React.Component<any, any,any> {
 
-	private goTo = () => {
-		
+	constructor(props:any) {
+		super(props)
+
+		this.state = {
+			currentComponent: "connection",
+			confirm: false,
+		}
+	}
+
+	private goTo = (component:string, confirm:boolean = false) => {
+		this.setState({
+			currentComponent: component,
+			confirm: confirm
+		})
 	}
 
 	render() {
+		const components:any = {
+			"inscription": <ContainerInscription goTo={ this.goTo }/>,
+			"connection": <ContainerConnection goTo={ this.goTo } confirm={ this.state.confirm }/>
+		}
+		const ComponentName:any = components[this.state.currentComponent]
 		return(
 			<div>
-				<ContainerInscription goTo={ this.goTo }/>
+				{ ComponentName }
 			</div>
 
 		)
