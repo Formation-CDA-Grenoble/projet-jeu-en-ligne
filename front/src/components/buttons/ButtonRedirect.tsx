@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import image from "../../images/icon-arrow-redirect.png"
 
 export default (props:any) => {
 	return (
@@ -6,7 +7,9 @@ export default (props:any) => {
 			{ props.children }
 			<button onClick={ (event, link = props.redirect, confirm = false) => props.goTo(link, confirm) }>
 				{ props.title }
+				<img src={ image } alt="icon de button" />
 			</button>
+
 		</div>
 
 	)

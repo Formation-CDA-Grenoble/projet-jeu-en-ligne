@@ -4,6 +4,8 @@ import { ButtonSubmit, ButtonRedirect } from './buttons'
 import Axios from 'axios'
 import { URL_SERVER } from '../constants'
 import { RegisterTitle } from './texts'
+import iconPseudo from '../images/icon-person.png'
+import iconLock from '../images/icon-lock-white.png'
 
 export default class ContainerInscription extends React.Component<any,any,any>{
 
@@ -72,7 +74,6 @@ export default class ContainerInscription extends React.Component<any,any,any>{
 	}
 
 
-
 	render() {
 		const { value } = this.state
 		return(
@@ -84,13 +85,15 @@ export default class ContainerInscription extends React.Component<any,any,any>{
 						name={ "email" }
 						placeholder={ "E-mail" }
 						onChange={ this.handleChange }
-						value={ value.mail }/>
+						value={ value.mail }
+						icon={ iconPseudo }/>
 					<InputRegister
 						type={ "password" }
 						name={ "password" }
 						placeholder={ "Mot de passe" }
 						onChange={ this.handleChange }
-						value={ value.password }/>
+						value={ value.password }
+						icon={ iconLock }/>
 					{ this.state.loading? <p>Connexion en cours...</p> 
 					:<ButtonSubmit title={ "Connexion" }/> }
 				</form>
