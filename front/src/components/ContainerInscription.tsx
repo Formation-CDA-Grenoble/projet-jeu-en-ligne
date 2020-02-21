@@ -1,6 +1,6 @@
 import React from 'react'
 import { InputRegister } from './inputs'
-import { ButtonSubmit } from './buttons'
+import { ButtonSubmit, ButtonRedirect } from './buttons'
 import Axios from 'axios'
 import { URL_SERVER } from '../constants'
 import { RegisterTitle } from './texts'
@@ -85,6 +85,13 @@ export default class ContainerInscription extends React.Component<any,any,any>{
 					{ this.state.loading? <p>Inscription en cours...</p> 
 					:<ButtonSubmit title={ "Inscription" }/> }
 				</form>
+
+				<ButtonRedirect
+					redirect={ "connection" }
+					title={ "Connexion" }
+					goTo={ this.props.goTo }>
+					<p>{ "Pas encore inscrit ?" }</p>
+				</ButtonRedirect>
 			</div>
 		)
 	}
