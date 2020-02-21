@@ -5,7 +5,9 @@ import { ContainerInscription } from '../components'
 
 export default class PageRegister extends React.Component<any, any,any> {
 
-
+	private goTo = () => {
+		
+	}
 
 	render() {
 		return(
