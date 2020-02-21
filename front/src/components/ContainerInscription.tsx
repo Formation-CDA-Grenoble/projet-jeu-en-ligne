@@ -7,9 +7,11 @@ import { RegisterTitle } from './texts'
 import iconPseudo from '../images/icon-person.png'
 import iconLock from '../images/icon-lock-white.png'
 
+import './styles/container.css'
+
 export default class ContainerInscription extends React.Component<any,any,any>{
 
-	constructor(props:any){
+	constructor(props:any){ 
 		super(props)
 		this.state = {
 			value: {
@@ -60,10 +62,10 @@ export default class ContainerInscription extends React.Component<any,any,any>{
 
 
 
-	render() {
+	render() {     
 		const { value } = this.state
 		return(
-			<div>
+			<div className="container container-register">
 				<RegisterTitle/>
 				<form onSubmit={ this.handleSubmit }>
 					<InputRegister

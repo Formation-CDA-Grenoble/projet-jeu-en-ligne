@@ -1,0 +1,19 @@
+.submit-button{
+	display: flex;
+	justify-content: center;
+	padding-top: 40px;
+	margin-bottom: 40px;
+}
+
+.submit-button input {
+	background-color: rgb(114,137,218);
+	border: none;
+	color:white;
+	padding: 14px 56px;
+	font-size: 18px;
+	border-radius: 8px;
+}
+
+.submit-button input:hover{
+	cursor: pointer;
+}

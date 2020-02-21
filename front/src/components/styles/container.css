@@ -1,0 +1,49 @@
+.container{
+	width: 50vw;
+	height: 100vh;
+	position: relative;
+
+}
+
+.design-img{
+	width: 100%;
+	object-fit: cover;
+	height: 100%;
+}
+
+
+
+.register-title{
+	margin-bottom: 75px;
+	font-size: 24px;
+    line-height: 29px;
+}
+
+.register-main-title{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate( -50%, -50%);
+}
+
+.register-main-title p, .register-main-title h1{
+	color: white;
+}
+
+.container-register{
+	padding-top: 3rem;
+	display: flex;
+	align-items: center;
+    flex-direction: column;
+    background-color: rgb(54,57,63);
+    color: white;
+}
+
+.container-register p{
+	margin: 0;
+}
+
+form{
+	width: 70%;
+	max-width: 400px;
+}

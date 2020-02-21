@@ -4,6 +4,8 @@ import { Redirect } from "react-router-dom";
 import chess from '../images/chess.jpg';
 import tictactoe from '../images/tic-tac-toe.jpg';
 
+import './styles/page.css'
+
 
 export default class PageRegister extends React.Component<any, any,any> {
 
@@ -20,7 +22,7 @@ export default class PageRegister extends React.Component<any, any,any> {
 		this.setState({
 			currentComponent: component,
 			confirm: confirm
-		})
+		}) 
 	}
 
 	render() {
@@ -37,10 +39,10 @@ export default class PageRegister extends React.Component<any, any,any> {
 		}
 		const ComponentName:any = components[this.state.currentComponent]
 		return(
-			<div>
+			<div className="page">
 				<ContainerDesignRegister image={ images[this.state.currentComponent] }/>
 				{ ComponentName }
-			</div>
+			</div> 
 		)
 	}
 }

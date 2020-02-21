@@ -6,5 +6,5 @@ export default (props:any) => {
 			<h1>{ "Plateforme de jeux" }</h1>
 			<p>{ "Eclatez-vous !" }</p>
 		</div>
-	)
+	) 
 } 
